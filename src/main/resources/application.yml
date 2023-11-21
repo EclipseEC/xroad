@@ -1,0 +1,16 @@
+quarkus:
+  http:
+    port: 9000
+    host: 192.168.1.203
+
+  cxf:
+    path: /soap
+    endpoint:
+      "/test":
+        implementor: ee.cyber.camins.services.SOAPService
+        features: org.apache.cxf.ext.logging.LoggingFeature
+
+    codegen:
+      wsdl2java:
+        includes: wsdl/*.wsdl
+        additional-params: -wsdlLocation,wsdl/*.wsdl,-exsh,true
