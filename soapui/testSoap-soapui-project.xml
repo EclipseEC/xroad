@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c99b367e-784d-4e0e-83d9-8216bb541dd5" activeEnvironment="Default" name="test" resourceRoot="" soapui-version="5.7.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="41e5e143-da5a-43bc-b869-5ca0ee4d7b32" wsaVersion="NONE" name="testServiceSoapBinding" type="wsdl" bindingName="{http://services.camins.cyber.ee/}testServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.1.203:9000/soap/test?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.1.203:9000/soap/test?wsdl"><con:part><con:url>http://192.168.1.203:9000/soap/test?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="testService" targetNamespace="http://services.camins.cyber.ee/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.camins.cyber.ee/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://x-road.eu/xsd/xroad.xsd">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://x-road.eu/xsd/xroad.xsd" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://x-road.eu/xsd/identifiers">
+      <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+      <xs:import namespace="http://x-road.eu/xsd/identifiers"/>
+      <xs:element name="centralService" type="ns1:XRoadCentralServiceIdentifierType"/>
+      <xs:element name="client" type="ns1:XRoadClientIdentifierType"/>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="issue" type="xs:string"/>
+      <xs:element name="notes">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:lang"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="protocolVersion" type="xs:string"/>
+      <xs:element name="requestHash">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="algorithmId" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="service" type="ns1:XRoadServiceIdentifierType"/>
+      <xs:element name="techNotes">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:lang"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="title">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:lang"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="userId" type="xs:string"/>
+      <xs:element name="version" type="xs:string"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://x-road.eu/xsd/identifiers" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://x-road.eu/xsd/identifiers">
+      <xs:element name="groupCode" type="xs:string"/>
+      <xs:element name="memberClass" type="xs:string"/>
+      <xs:element name="memberCode" type="xs:string"/>
+      <xs:element name="securityCategoryCode" type="xs:string"/>
+      <xs:element name="serverCode" type="xs:string"/>
+      <xs:element name="serviceCode" type="xs:string"/>
+      <xs:element name="serviceVersion" type="xs:string"/>
+      <xs:element name="subsystemCode" type="xs:string"/>
+      <xs:element name="xRoadInstance" type="xs:string"/>
+      <xs:complexType name="XRoadClientIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadIdentifierType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="xRoadInstance" type="xs:string"/>
+          <xs:element minOccurs="0" name="memberClass" type="xs:string"/>
+          <xs:element minOccurs="0" name="memberCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="subsystemCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="groupCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceVersion" type="xs:string"/>
+          <xs:element minOccurs="0" name="securityCategoryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="serverCode" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute ref="tns:objectType" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="XRoadServiceIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadCentralServiceIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadSecurityCategoryIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadSecurityServerIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadGlobalGroupIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadLocalGroupIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:XRoadIdentifierType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="XRoadObjectType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MEMBER"/>
+          <xs:enumeration value="SUBSYSTEM"/>
+          <xs:enumeration value="SERVER"/>
+          <xs:enumeration value="GLOBALGROUP"/>
+          <xs:enumeration value="LOCALGROUP"/>
+          <xs:enumeration value="SECURITYCATEGORY"/>
+          <xs:enumeration value="SERVICE"/>
+          <xs:enumeration value="CENTRALSERVICE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="objectType" type="tns:XRoadObjectType"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:attribute name="lang" type="xs:string"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://services.camins.cyber.ee/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="test" type="tns:QueryFields"/>
+      <xs:element name="testResponse" type="tns:ResponseFields"/>
+      <xs:complexType name="QueryFields">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="query" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResponseFields">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reply" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="test">
+    <wsdl:part element="tns:test" name="parameters"></wsdl:part>
+    <wsdl:part element="ns1:client" name="client"></wsdl:part>
+    <wsdl:part element="ns1:service" name="service"></wsdl:part>
+    <wsdl:part element="ns1:id" name="id"></wsdl:part>
+    <wsdl:part element="ns1:userId" name="userId"></wsdl:part>
+    <wsdl:part element="ns1:issue" name="issue"></wsdl:part>
+    <wsdl:part element="ns1:protocolVersion" name="protocolVersion"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="anotherTestResponse">
+    <wsdl:part element="tns:testResponse" name="body"></wsdl:part>
+    <wsdl:part element="ns1:client" name="client"></wsdl:part>
+    <wsdl:part element="ns1:service" name="service"></wsdl:part>
+    <wsdl:part element="ns1:id" name="id"></wsdl:part>
+    <wsdl:part element="ns1:userId" name="userId"></wsdl:part>
+    <wsdl:part element="ns1:issue" name="issue"></wsdl:part>
+    <wsdl:part element="ns1:protocolVersion" name="protocolVersion"></wsdl:part>
+    <wsdl:part element="ns1:requestHash" name="requestHash"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testResponse">
+    <wsdl:part element="tns:testResponse" name="result"></wsdl:part>
+    <wsdl:part element="ns1:client" name="client"></wsdl:part>
+    <wsdl:part element="ns1:service" name="service"></wsdl:part>
+    <wsdl:part element="ns1:id" name="id"></wsdl:part>
+    <wsdl:part element="ns1:userId" name="userId"></wsdl:part>
+    <wsdl:part element="ns1:issue" name="issue"></wsdl:part>
+    <wsdl:part element="ns1:protocolVersion" name="protocolVersion"></wsdl:part>
+    <wsdl:part element="ns1:requestHash" name="requestHash"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="anotherTest">
+    <wsdl:part element="tns:test" name="body"></wsdl:part>
+    <wsdl:part element="ns1:client" name="client"></wsdl:part>
+    <wsdl:part element="ns1:service" name="service"></wsdl:part>
+    <wsdl:part element="ns1:id" name="id"></wsdl:part>
+    <wsdl:part element="ns1:userId" name="userId"></wsdl:part>
+    <wsdl:part element="ns1:issue" name="issue"></wsdl:part>
+    <wsdl:part element="ns1:protocolVersion" name="protocolVersion"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="testPortType">
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:test" name="test"></wsdl:input>
+      <wsdl:output message="tns:testResponse" name="testResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anotherTest" parameterOrder="body client service id userId issue protocolVersion requestHash">
+      <wsdl:input message="tns:anotherTest" name="anotherTest"></wsdl:input>
+      <wsdl:output message="tns:anotherTestResponse" name="anotherTestResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="testServiceSoapBinding" type="tns:testPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="test">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="test">
+        <soap:header message="tns:test" part="client" use="literal"></soap:header>
+        <soap:header message="tns:test" part="service" use="literal"></soap:header>
+        <soap:header message="tns:test" part="id" use="literal"></soap:header>
+        <soap:header message="tns:test" part="userId" use="literal"></soap:header>
+        <soap:header message="tns:test" part="issue" use="literal"></soap:header>
+        <soap:header message="tns:test" part="protocolVersion" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testResponse">
+        <soap:header message="tns:testResponse" part="client" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="service" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="id" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="userId" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="issue" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="protocolVersion" use="literal"></soap:header>
+        <soap:header message="tns:testResponse" part="requestHash" use="literal"></soap:header>
+        <soap:body parts="result" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anotherTest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="anotherTest">
+        <soap:header message="tns:anotherTest" part="client" use="literal"></soap:header>
+        <soap:header message="tns:anotherTest" part="service" use="literal"></soap:header>
+        <soap:header message="tns:anotherTest" part="id" use="literal"></soap:header>
+        <soap:header message="tns:anotherTest" part="userId" use="literal"></soap:header>
+        <soap:header message="tns:anotherTest" part="issue" use="literal"></soap:header>
+        <soap:header message="tns:anotherTest" part="protocolVersion" use="literal"></soap:header>
+        <soap:body parts="body" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="anotherTestResponse">
+        <soap:header message="tns:anotherTestResponse" part="client" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="service" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="id" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="userId" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="issue" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="protocolVersion" use="literal"></soap:header>
+        <soap:header message="tns:anotherTestResponse" part="requestHash" use="literal"></soap:header>
+        <soap:body parts="body" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="testService">
+    <wsdl:port binding="tns:testServiceSoapBinding" name="testPortTypePort">
+      <soap:address location="http://192.168.1.203:9000/soap/test"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.1.203:9000/soap/test</con:endpoint></con:endpoints><con:operation id="e3597b02-338f-47b2-8c03-15e2a377029b" isOneWay="false" action="" name="anotherTest" bindingOperationName="anotherTest" type="Request-Response" outputName="anotherTestResponse" inputName="anotherTest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c5ad25bc-a03a-4590-ab3a-0fb42ce136de" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.1.203:9000/soap/test</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xro="http://x-road.eu/xsd/xroad.xsd" xmlns:tns="http://x-road.eu/xsd/identifiers" xmlns:ser="http://services.camins.cyber.ee/">
+   <soapenv:Header>
+      <xro:protocolVersion>4.0</xro:protocolVersion>
+      <xro:id>123</xro:id>
+      <xro:service tns:objectType="SERVICE">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+         <tns:subsystemCode>TestService</tns:subsystemCode>
+         <tns:serviceCode>anotherTest</tns:serviceCode>
+      </xro:service>
+      <xro:client tns:objectType="SUBSYSTEM">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+         <tns:subsystemCode>TestClient</tns:subsystemCode>
+      </xro:client>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ser:test>
+         <!--Optional:-->
+         <query>?</query>
+      </ser:test>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.camins.cyber.ee/testPortType/anotherTest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="394d8ae1-e04e-41aa-90dc-7177c8c2c20c" isOneWay="false" action="" name="test" bindingOperationName="test" type="Request-Response" outputName="testResponse" inputName="test" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="607ea409-580b-4a8a-b8b6-027730f9beac" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xro="http://x-road.eu/xsd/xroad.xsd" xmlns:tns="http://x-road.eu/xsd/identifiers" xmlns:ser="http://services.camins.cyber.ee/">
+   <soapenv:Header>
+      <xro:protocolVersion>4.0</xro:protocolVersion>
+      <xro:id>123</xro:id>
+      <xro:service tns:objectType="SERVICE">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+         <tns:subsystemCode>TestService</tns:subsystemCode>
+         <tns:serviceCode>allowedMethods</tns:serviceCode>
+      </xro:service>
+      <xro:client tns:objectType="MEMBER">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+      </xro:client>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ser:allowedMethods/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.camins.cyber.ee/testPortType/test"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6a8bd818-f83c-4875-bfa3-db743907ed92" name="OpData"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:om="http://x-road.eu/xsd/op-monitoring.xsd" xmlns:xro="http://x-road.eu/xsd/xroad.xsd" xmlns:tns="http://x-road.eu/xsd/identifiers" xmlns:ser="http://services.camins.cyber.ee/">
+   <soapenv:Header>
+      <xro:protocolVersion>4.0</xro:protocolVersion>
+      <xro:id>123</xro:id>
+      <xro:service tns:objectType="SERVICE">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+         <tns:serviceCode>getSecurityServerOperationalData</tns:serviceCode>
+      </xro:service>
+      <xro:client tns:objectType="MEMBER">
+         <tns:xRoadInstance>CS</tns:xRoadInstance>
+         <tns:memberClass>ORG</tns:memberClass>
+         <tns:memberCode>1111</tns:memberCode>
+      </xro:client>
+      <xro:securityServer id:objectType="SERVER">
+	      <tns:xRoadInstance>CS</id:xRoadInstance>
+	      <tns:memberClass>ORG</id:memberClass>
+	      <tns:memberCode>1111</id:memberCode>
+	      <tns:serverCode>00000001_1</id:serverCode>
+    </xro:securityServer>
+   </soapenv:Header>
+   <soapenv:Body>
+     <om:getSecurityServerOperationalData>
+      <om:searchCriteria>
+        <om:recordsFrom>1480512828</om:recordsFrom>
+        <om:recordsTo>1480512832</om:recordsTo>
+      </om:searchCriteria>
+    </om:getSecurityServerOperationalData>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.camins.cyber.ee/testPortType/test"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
